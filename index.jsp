@@ -66,7 +66,7 @@
 							</div>
 						</div>
 					</form>
-				<%}else{ %><a href = "userLogOut.jsp">로그아웃.</a><%} %>
+				<%}else{ %><a href = "./userLogOut.jsp">로그아웃.</a><%} %>
 			</article>
 		</section>
 		
