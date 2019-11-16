@@ -2,8 +2,9 @@ package board;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
-
+import board.BoardDTO;
 import util.DatabaseUtil;
 
 public class BoardDAO
@@ -329,7 +330,50 @@ public class BoardDAO
 	
 	
 	
-	
+
+	public ArrayList<BoardDTO> GetList(String boardType,String search) 
+	{	
+		ArrayList<BoardDTO> boardList = null;
+		String SQL = "";
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+
+		
+		try {conn = DatabaseUtil.getConnection();
+			if(search.equals(null)||search.equals("")||search==""||search==null)
+			{
+				SQL = "SELECT * FROM board WHERE boardType = ? ORDER BY boardNo";
+				pstmt = conn.prepareStatement(SQL);
+				pstmt.setString(1, boardType);
+			}
+			else
+			{
+				SQL = "SELECT * FRom board WHERE (boardType = ? ) AND CONCAT(boardTitle,boardWriter,boardContent)Like ? ORDER BY boardNo";
+				pstmt = conn.prepareStatement(SQL);
+				pstmt.setString(1, "%"+boardType+"%");
+				pstmt.setString(2, "%"+search.replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\r\n", "<br>")+"%");
+			}
+
+			
+			rs = pstmt.executeQuery();
+			boardList = new ArrayList<BoardDTO>();
+			while(rs.next()) {
+				BoardDTO board = new BoardDTO(
+							rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getInt(5),	
+							rs.getString(6),rs.getInt(7),rs.getInt(8),rs.getString(9));
+					boardList.add(board);
+					}
+		}
+		catch(Exception e) {e.printStackTrace();}
+		finally 
+		{
+					try{	if(conn!=null)	conn.close();}	catch(Exception e){e.printStackTrace();};
+					try{	if(pstmt!=null)	pstmt.close();}	catch(Exception e){e.printStackTrace();};
+					try{	if(rs!=null)	rs.close();}	catch(Exception e){e.printStackTrace();};
+		}
+		return boardList;
+	}
 	
 	
 	
