@@ -141,7 +141,7 @@
 				
 				<%if(userID!=null) {%>
 						<div >
-							<a href = "./boardEnroll.jsp?pageID=<%=pageNo%>"><button id = customenroll >글쓰기</button></a>
+							<a href = "./boardEnroll.jsp?pageNo=<%=pageNo%>"><button id = customenroll >글쓰기</button></a>
 						</div>
 				<%}%>
 				<form action =" method = "get" >
@@ -198,10 +198,3 @@
 </body>
 
 </html>
-
-
-
-
-
-
-
