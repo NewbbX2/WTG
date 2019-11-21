@@ -11,14 +11,16 @@ public class DatabaseUtil {
 
 	public static Connection getConnection() 
 	{
-		String dbURL = "jdbc:mysql://로컬호스트:8080";//다른곳 지정시 알아서
-		String dbID = "아이디";
-		String dbPassword = "비밀번호";
+		String dbURL = "jdbc:mysql://localhost:8080/trip";
+		String dbID = "root";
+		String dbPassword = "er181001.";
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			return DriverManager.getConnection(dbURL, dbID, dbPassword);
-			} catch (Exception e) {
-			e.printStackTrace();
+			} 
+			catch (Exception e) {
+				e.printStackTrace();
+				e.printStackTrace();
 			}return null;
 				
 	}
