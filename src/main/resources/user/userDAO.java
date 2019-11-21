@@ -12,7 +12,7 @@ public class UserDAO {
 	//DB에 유저추가.
 	public int UserJoin(UserDTO User)
 	{
-		String SQL = "INSERT INTO userInfor VALUES(?,?,?,?,?,?,?,?,?,?,		?,?,?,?,?,?,?,?)";
+		String SQL = "INSERT INTO userInfor VALUES(?,?,?,?,?,  ?,?,?,?,?,		?,?,?,?,?,  ?,?,?)";
 		try {
 			Connection conn = DatabaseUtil.getConnection();
 			PreparedStatement pstmt = conn.prepareStatement(SQL);
@@ -45,7 +45,8 @@ public class UserDAO {
 		}
 		catch(Exception e)
 		{
-			e.printStackTrace();return -1;
+			e.printStackTrace();
+			return -1;
 		}
 	}
 	
