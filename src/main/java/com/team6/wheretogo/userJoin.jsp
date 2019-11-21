@@ -8,11 +8,8 @@
 <head>
 		<meta http-equiv = "Content-Type" content="text/html" charset="UTF-8">
 		<title> 회원가입페이지입니다.</title>
-		
-</head>
-<body oncontextmenu='return false' ondragstart = "return flase" onselectstart = "return false">
-	<script type="text/javascript">
-		
+		<script type="text/javascript">
+		//스크립트 부분, 비밀번호 두개가 같은지 체크
 		function PasswordCheckFunction()
 		{
 			var userPassword=$('#userPassword').val();
@@ -20,7 +17,11 @@
 			if(userPassword!=userPassword2)		{$('#PasswordCheckMessage').html('비밀번호가 일치하지 않습니다.');}
 			else									{$('#PasswordCheckMessage').html('');}
 		}
+		//이거 표시할 장소 만들예정
 	</script>
+</head>
+<body oncontextmenu='return false' ondragstart = "return flase" onselectstart = "return false">
+	
 
 	<div class = "container">
 		<form action = "userJoinAction.jsp">
