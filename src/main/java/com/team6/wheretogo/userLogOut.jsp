@@ -3,8 +3,7 @@
 <%@ page import ="user.UserDTO" %>
 <%@ page import ="user.UserDAO" %>
 <%@ page import ="java.io.PrintWriter" %>
-	<%	session.invalidate();
- 	%>
+<%session.invalidate();%>
  	<script> location.href = 'index.jsp'</script>
  	
     
