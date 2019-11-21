@@ -58,7 +58,7 @@
 						</div>
 						<div id = "IDPWD2">
 							<div id = "UserJoin">
-								<a href = "userJoin.jsp">회원가입</a>
+								<a href = "./userJoin.jsp">회원가입</a>
 							</div>
 							<div id = "FindIDAndPassWord">
 								<a href = "findID.jsp">아이디찾기 /</a>
