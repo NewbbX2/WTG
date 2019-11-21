@@ -5,26 +5,26 @@
 <%@ page import ="java.io.PrintWriter" %>
 	<%
 	request.setCharacterEncoding("UTF-8");
-	String userID = null;
-	String userPassword = null;
-	String userPassword2 = null;
-	String userName = null;
-	String userBirthDate= null;
-	String userGender= null;
-	String userHintQestion= null;
-	String userHintAns= null;
-	String userEmail01= null;
-	String userEmail02 = null;
+	String userID = "1";
+	String userPassword = "1";
+	String userPassword2 = "1";
+	String userName = "1";
+	String userBirthDate= "1";
+	String userGender= "1";
+	String userHintQestion= "1";
+	String userHintAns= "1";
+	String userEmail01= "1";
+	String userEmail02 = "1";
 	
-	String userAddress01 = null;
-	String userAddress02 = null;
-	String userAddress03 = null;
-	String userPhoneNo01 = null;
-	String userPhoneNo02 = null;
-	String userPhoneNo03 = null;
-	String userCellPhoneNo01 = null;
-	String userCellPhoneNo02 = null;
-	String userCellPhoneNo03 = null;
+	String userAddress01 = "1";
+	String userAddress02 = "1";
+	String userAddress03 = "1";
+	String userPhoneNo01 = "1";
+	String userPhoneNo02 = "1";
+	String userPhoneNo03 = "1";
+	String userCellPhoneNo01 = "1";
+	String userCellPhoneNo02 = "1";
+	String userCellPhoneNo03 = "1";
 	
 	if(request.getParameter("userID") !=null) userID = (String)request.getParameter("userID");
 	if(request.getParameter("userPassword") !=null)userPassword = (String)request.getParameter("userPassword");
@@ -38,15 +38,15 @@
 	if(request.getParameter("userEmail02") !=null)userEmail02 = (String)request.getParameter("userEmail02");
 	
 
-	if(request.getParameter("userAddress01") !=null) userID = (String)request.getParameter("userID");
-	if(request.getParameter("userAddress02") !=null)userPassword = (String)request.getParameter("userPassword");
-	if(request.getParameter("userAddress03") !=null)userPassword2 = (String)request.getParameter("userPassword2");
-	if(request.getParameter("userName") !=null) userName = (String)request.getParameter("userName");
-	if(request.getParameter("userBirthDate") !=null)userBirthDate = (String)request.getParameter("userBirthDate");
-	if(request.getParameter("userGender") !=null) userGender = (String)request.getParameter("userGender");
-	if(request.getParameter("userHintQestion") !=null)userHintQestion = (String)request.getParameter("userHintQestion");
-	if(request.getParameter("userHintAns") !=null)userHintAns = (String)request.getParameter("userHintAns");
-	if(request.getParameter("userEmail01") !=null)userEmail01 = (String)request.getParameter("userEmail01");
+	if(request.getParameter("userAddress01") !=null) userAddress01 = (String)request.getParameter("userAddress01");
+	if(request.getParameter("userAddress02") !=null) userAddress02 = (String)request.getParameter("userAddress02");
+	if(request.getParameter("userAddress03") !=null) userAddress03 = (String)request.getParameter("userAddress03");
+	if(request.getParameter("userPhoneNo01") !=null) userPhoneNo01 = (String)request.getParameter("userPhoneNo01");
+	if(request.getParameter("userPhoneNo02") !=null) userPhoneNo02 = (String)request.getParameter("userPhoneNo02");
+	if(request.getParameter("userPhoneNo03") !=null) userPhoneNo03 = (String)request.getParameter("userPhoneNo03");
+	if(request.getParameter("userCellPhoneNo01") !=null) userCellPhoneNo01 = (String)request.getParameter("userCellPhoneNo01");
+	if(request.getParameter("userCellPhoneNo02") !=null) userCellPhoneNo02 = (String)request.getParameter("userCellPhoneNo02");
+	if(request.getParameter("userCellPhoneNo03") !=null) userCellPhoneNo03 = (String)request.getParameter("userCellPhoneNo03");
 	
 		
 	if(userID ==null||userPassword == null||userPassword2 == null|| userName == null||userBirthDate == null||userGender == null
@@ -72,7 +72,11 @@
 		UserDAO userDAO = new UserDAO();
 		int result = userDAO.UserJoin(new UserDTO( userID,  userPassword,  userName, Integer.parseInt( userBirthDate), Boolean.parseBoolean( userGender),
 				Integer.parseInt( userHintQestion),  userHintAns,  userEmail01,  userEmail02,  userAddress01,
-				 userAddress02,  userAddress03, Integer.parseInt( userPhoneNo01), Integer.parseInt( userPhoneNo02), Integer.parseInt( userPhoneNo03),
+				 userAddress02, 
+				 userAddress03,
+				 Integer.parseInt( userPhoneNo01), 
+				 Integer.parseInt( userPhoneNo02), 
+				 Integer.parseInt( userPhoneNo03),
 				 Integer.parseInt( userCellPhoneNo01), Integer.parseInt( userCellPhoneNo02), Integer.parseInt( userCellPhoneNo03))); 
 		
 		
