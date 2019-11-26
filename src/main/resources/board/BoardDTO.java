@@ -11,6 +11,7 @@ public class BoardDTO
 	int boardViews;
 	int boardRecommandation;
 	String boardContent;
+	int tripNo;
 	
 	
 	
@@ -19,15 +20,9 @@ public class BoardDTO
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
+
 	public BoardDTO(int boardNo, String boardType, String boardClassfy, String boardTitle, int boardEnrollDate,
-			String boardWriter, int boardViews, int boardRecommandation, String boardContent) {
+			String boardWriter, int boardViews, int boardRecommandation, String boardContent, int tripNo) {
 		super();
 		this.boardNo = boardNo;
 		this.boardType = boardType;
@@ -38,15 +33,22 @@ public class BoardDTO
 		this.boardViews = boardViews;
 		this.boardRecommandation = boardRecommandation;
 		this.boardContent = boardContent;
+		this.tripNo = tripNo;
 	}
+	
+	
+	
+	
+	
 
 
 
-
-
-
-
-
+	public int getTripNo() {
+		return tripNo;
+	}
+	public void setTripNo(int tripNo) {
+		this.tripNo = tripNo;
+	}
 
 
 
