@@ -90,17 +90,17 @@
 							for(int indexNo=NoStart ;(indexNo>=1)&&(indexNo>NoNextStart);indexNo--){
 								BoardDTO board = boardList.get(indexNo-1);%>
 								<tr>
-									<td><a href = "tripForum2.jsp?boardID=<%=board.getBoardNo()%>" style="text-decoration:none;color:black"><%=indexNo%></a></td>	
-									<td><a href = "tripForum2.jsp?boardID=<%=board.getBoardNo()%>" style="text-decoration:none;color:black">
+									<td><a href = "tripForum2.jsp?boardNo=<%=board.getBoardNo()%>" style="text-decoration:none;color:black"><%=indexNo%></a></td>	
+									<td><a href = "tripForum2.jsp?boardNo=<%=board.getBoardNo()%>" style="text-decoration:none;color:black">
 										<%if(board.getBoardClassfy().equals("Korea")){%>한국
 										<%}else if(board.getBoardClassfy().equals("Japan")){%>일본
 										<%}else if(board.getBoardClassfy().equals("China")){%>중국
 										<%} %>
 									</a></td>	
-									<td><a href = "tripForum2.jsp?boardID=<%=board.getBoardNo()%>" style="text-decoration:none;color:black"><%=board.getBoardTitle()%></a></td>	
-									<td><a href = "tripForum2.jsp?boardID=<%=board.getBoardNo()%>" style="text-decoration:none;color:black"><%=board.getBoardEnrollDate()%></a></td>	
-									<td><a href = "tripForum2.jsp?boardID=<%=board.getBoardNo()%>" style="text-decoration:none;color:black"><%=board.getBoardWriter()%></a></td>
-									<td><a href = "tripForum2.jsp?boardID=<%=board.getBoardNo()%>" style="text-decoration:none;color:black"><%=board.getBoardViews()%></a></td>	
+									<td><a href = "tripForum2.jsp?boardNo=<%=board.getBoardNo()%>" style="text-decoration:none;color:black"><%=board.getBoardTitle()%></a></td>	
+									<td><a href = "tripForum2.jsp?boardNo=<%=board.getBoardNo()%>" style="text-decoration:none;color:black"><%=board.getBoardEnrollDate()%></a></td>	
+									<td><a href = "tripForum2.jsp?boardNo=<%=board.getBoardNo()%>" style="text-decoration:none;color:black"><%=board.getBoardWriter()%></a></td>
+									<td><a href = "tripForum2.jsp?boardNo=<%=board.getBoardNo()%>" style="text-decoration:none;color:black"><%=board.getBoardViews()%></a></td>	
 								</tr>
 						
 							<%}
