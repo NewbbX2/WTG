@@ -152,7 +152,7 @@
 						<option value = "제목" > Title</option>
 						<option value = "작성자" > Writer</option>
 					</select>
-					<input type = "text" id = "search" style="width:800px;" >
+					<input type = "text" name = "search" style="width:800px;" >
 					<button>검색</button>
 				</form>
 			</div>
