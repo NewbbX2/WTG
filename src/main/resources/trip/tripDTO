@@ -1,0 +1,110 @@
+	package trip;
+public class TripDTO
+{
+	int tripNo;
+	String boardType;
+	String boardClassfy;
+	String boardTitle;
+	int boardEnrollDate;
+	
+	String boardWriter;
+	int tripStartDate;
+	int tripEndDate;
+	String boardContent;
+	
+	
+	
+	public TripDTO() {super();}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	public TripDTO(int tripNo, String boardType, String boardClassfy, String boardTitle, int boardEnrollDate,
+			String boardWriter, int tripStartDate, int tripEndDate, String boardContent) {
+		super();
+		this.tripNo = tripNo;
+		this.boardType = boardType;
+		this.boardClassfy = boardClassfy;
+		this.boardTitle = boardTitle;
+		this.boardEnrollDate = boardEnrollDate;
+		this.boardWriter = boardWriter;
+		this.tripStartDate = tripStartDate;
+		this.tripEndDate = tripEndDate;
+		this.boardContent = boardContent;
+	}
+
+
+
+
+
+
+
+
+
+
+
+	public int getTripNo() {
+		return tripNo;
+	}
+	public String getBoardType() {
+		return boardType;
+	}
+	public String getBoardClassfy() {
+		return boardClassfy;
+	}
+	public String getBoardTitle() {
+		return boardTitle;
+	}
+	public int getBoardEnrollDate() {
+		return boardEnrollDate;
+	}
+	public String getBoardWriter() {
+		return boardWriter;
+	}
+	public int getTripStartDate() {
+		return tripStartDate;
+	}
+	public int getTripEndDate() {
+		return tripEndDate;
+	}
+	public String getBoardContent() {
+		return boardContent;
+	}
+	public void setTripNo(int tripNo) {
+		this.tripNo = tripNo;
+	}
+	public void setBoardType(String boardType) {
+		this.boardType = boardType;
+	}
+	public void setBoardClassfy(String boardClassfy) {
+		this.boardClassfy = boardClassfy;
+	}
+	public void setBoardTitle(String boardTitle) {
+		this.boardTitle = boardTitle;
+	}
+	public void setBoardEnrollDate(int boardEnrollDate) {
+		this.boardEnrollDate = boardEnrollDate;
+	}
+	public void setBoardWriter(String boardWriter) {
+		this.boardWriter = boardWriter;
+	}
+	public void setTripStartDate(int tripStartDate) {
+		this.tripStartDate = tripStartDate;
+	}
+	public void setTripEndDate(int tripEndDate) {
+		this.tripEndDate = tripEndDate;
+	}
+	public void setBoardContent(String boardContent) {
+		this.boardContent = boardContent;
+	}
+
+	
+
+}
