@@ -78,9 +78,9 @@
 
 <%//보드 내용 검색
 //보드 에러
-						if(boardList!=null){%><tr><td colspan = "6"><h1 >등록된 보드가 없습니다.</h1></td></tr><%}
+						if(boardList==null){%><tr><td colspan = "6"><h1 >등록된 보드가 없습니다.</h1></td></tr><%}
 //보드 검색내용 없음
-						else if(boardList.size()==0){%><tr><td colspan = "6"><h1 >등록된 글이 없습니다..</h1></td></tr><%}
+						else if(boardList.size()==0){%><tr><td colspan = "6"><h1 >등록된 글이 없습니다.</h1></td></tr><%}
 //보드 검색중.
 						else{
 //Nostart Noend : 페이지당 지정한 글수만큼 출력가능할시, start는 이번페이지에서, End는 +1증가한 다음페이지에서 시작글.
@@ -90,8 +90,12 @@
 							for(int indexNo=NoStart ;(indexNo>=1)&&(indexNo>NoNextStart);indexNo--){
 								BoardDTO board = boardList.get(indexNo-1);%>
 								<tr>
-									<td><a href = "tripForum2.jsp?boardID=<%=board.getBoardNo()%>" style="text-decoration:none;color:black"><%=board.boardClassfy()%></a></td>	
 									<td><a href = "tripForum2.jsp?boardID=<%=board.getBoardNo()%>" style="text-decoration:none;color:black"><%=indexNo%></a></td>	
+									<td><a href = "tripForum2.jsp?boardID=<%=board.getBoardNo()%>" style="text-decoration:none;color:black">
+										<%if(board.getBoardClassfy().equals("tripPlan")){%>여행계획
+										<%}else if(board.getBoardClassfy().equals("tripLog")){%>여행일지 
+										<%} %>
+									</a></td>	
 									<td><a href = "tripForum2.jsp?boardID=<%=board.getBoardNo()%>" style="text-decoration:none;color:black"><%=board.getBoardTitle()%></a></td>	
 									<td><a href = "tripForum2.jsp?boardID=<%=board.getBoardNo()%>" style="text-decoration:none;color:black"><%=board.getBoardEnrollDate()%></a></td>	
 									<td><a href = "tripForum2.jsp?boardID=<%=board.getBoardNo()%>" style="text-decoration:none;color:black"><%=board.getBoardWriter()%></a></td>
@@ -140,18 +144,16 @@
 				
 				
 				<%if(userID!=null) {%>
-						<div >
-							<a href = "./boardEnroll.jsp?boardType=tripForum"><button  >글쓰기</button></a>
-						</div>
+						<div ><a href = "./boardEnroll.jsp?boardType=tripForum"><button  >글쓰기</button></a></div>
 				<%}%>
-				<form action =" method = "get" >
-					<select name = "Country" class =  "form-control">
+				<form action ="./tripForum.jsp" method = "get" >
+					<select name = "boardClassfy" class =  "form-control">
 						<option   value = "Plan" selected > 플랜</option>
 						<option value = "Log" > 로그</option>
 						<option value = "All" > 전부</option>
 					</select>
 					
-					<select name = "userGender" class =  "form-control">
+					<select name = "Order" class =  "form-control">
 						<option   value = "None" selected > 정렬</option>
 						<option value = "제목" > Title</option>
 						<option value = "작성자" > Writer</option>
@@ -162,7 +164,7 @@
 						<option value = "제목" > Title</option>
 						<option value = "작성자" > Writer</option>
 					</select>
-					<input type = "text" id = "search" style="width:800px;" >
+					<input type = "text" name = "search" style="width:800px;" >
 					<button>검색</button>
 				</form>
 			</div>
