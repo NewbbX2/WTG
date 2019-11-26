@@ -141,14 +141,7 @@
 						<div ><a href = "./boardEnroll.jsp?boardType=freeForum"><button  >글쓰기</button></a></div>
 				<%}%>
 				<form  action ="./freeForum.jsp"  method = "get" >
-					<select name = "Country" class =  "form-control">
-						<option   value = "All" selected > 나라</option>
-						<option value = "Japan" > 일본</option>
-						<option value = "Korea" > 한국</option>
-						<option value = "China" > 중국</option>
-					</select>
-					
-					<select name = "userGender" class =  "form-control">
+					<select name = "Order" class =  "form-control">
 						<option   value = "None" selected > 정렬</option>
 						<option value = "제목" > Title</option>
 						<option value = "작성자" > Writer</option>
@@ -195,3 +188,10 @@
 </body>
 
 </html>
+
+
+
+
+
+
+
