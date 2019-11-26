@@ -1,0 +1,342 @@
+package trip;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+
+import trip.TripDTO;
+import util.DatabaseUtil;
+
+public class TripDAO
+{
+	
+	public int Delete(int TripNo)
+	{
+		String SQL = "DELETE FROM trip WHERE tripNo = ?";
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			conn = DatabaseUtil.getConnection();
+			pstmt = conn.prepareStatement(SQL);
+			pstmt.setInt(1, TripNo);
+			return pstmt.executeUpdate();
+		}catch(Exception e) {e.printStackTrace();}
+		finally 
+		{
+			try{	if(conn!=null)	conn.close();}	catch(Exception e){e.printStackTrace();};
+			try{	if(pstmt!=null)	pstmt.close();}	catch(Exception e){e.printStackTrace();};
+			try{	if(rs!=null)	rs.close();}	catch(Exception e){e.printStackTrace();};
+		}
+		return -1;
+	}
+
+	
+	
+	
+
+	public String GetBoardTitle(int TripNo)
+	{
+		String SQL = "SELECT boardTitle FROM trip WHERE TripNo = ?";
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			conn = DatabaseUtil.getConnection();
+			pstmt = conn.prepareStatement(SQL);
+			pstmt.setInt(1,TripNo);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				return rs.getString(1);
+			}
+		}catch(Exception e) {e.printStackTrace();}
+		finally 
+		{
+			try{	if(conn!=null)	conn.close();}	catch(Exception e){e.printStackTrace();};
+			try{	if(pstmt!=null)	pstmt.close();}	catch(Exception e){e.printStackTrace();};
+			try{	if(rs!=null)	rs.close();}	catch(Exception e){e.printStackTrace();};
+		}
+		return null;
+	}
+	public String GetBoardClassfy(int TripNo)
+	{
+		String SQL = "SELECT boardClassfy FROM trip WHERE TripNo = ?";
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			conn = DatabaseUtil.getConnection();
+			pstmt = conn.prepareStatement(SQL);
+			pstmt.setInt(1,TripNo);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				return rs.getString(1);
+			}
+		}catch(Exception e) {e.printStackTrace();}
+		finally 
+		{
+			try{	if(conn!=null)	conn.close();}	catch(Exception e){e.printStackTrace();};
+			try{	if(pstmt!=null)	pstmt.close();}	catch(Exception e){e.printStackTrace();};
+			try{	if(rs!=null)	rs.close();}	catch(Exception e){e.printStackTrace();};
+		}
+		return null;
+	}
+	public int GetEnrollDate(int TripNo)
+	{
+		String SQL = "SELECT boardEnrollDate FROM trip WHERE tripNo = ?";
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			conn = DatabaseUtil.getConnection();
+			pstmt = conn.prepareStatement(SQL);
+			pstmt.setInt(1,TripNo);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				return rs.getInt(1);
+			}
+		}catch(Exception e) {e.printStackTrace();}
+		finally 
+		{
+			try{	if(conn!=null)	conn.close();}	catch(Exception e){e.printStackTrace();};
+			try{	if(pstmt!=null)	pstmt.close();}	catch(Exception e){e.printStackTrace();};
+			try{	if(rs!=null)	rs.close();}	catch(Exception e){e.printStackTrace();};
+		}
+		return 0;
+	}
+	public String GetBoardWriter(int TripNo)
+	{
+		String SQL = "SELECT boardWriter FROM trip WHERE tripNo = ?";
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			conn = DatabaseUtil.getConnection();
+			pstmt = conn.prepareStatement(SQL);
+			pstmt.setInt(1,TripNo);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				return rs.getString(1);
+			}
+		}catch(Exception e) {e.printStackTrace();}
+		finally 
+		{
+			try{	if(conn!=null)	conn.close();}	catch(Exception e){e.printStackTrace();};
+			try{	if(pstmt!=null)	pstmt.close();}	catch(Exception e){e.printStackTrace();};
+			try{	if(rs!=null)	rs.close();}	catch(Exception e){e.printStackTrace();};
+		}
+		return null;
+	}
+	public int GetBoardViews(int TripNo)
+	{
+		String SQL = "SELECT tripStartDate FROM trip WHERE tripNo = ?";
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			conn = DatabaseUtil.getConnection();
+			pstmt = conn.prepareStatement(SQL);
+			pstmt.setInt(1,TripNo);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				return rs.getInt(1);
+			}
+		}catch(Exception e) {e.printStackTrace();}
+		finally 
+		{
+			try{	if(conn!=null)	conn.close();}	catch(Exception e){e.printStackTrace();};
+			try{	if(pstmt!=null)	pstmt.close();}	catch(Exception e){e.printStackTrace();};
+			try{	if(rs!=null)	rs.close();}	catch(Exception e){e.printStackTrace();};
+		}
+		return 0;
+	}
+	public int GetBoardRecommandation(int TripNo)
+	{
+		String SQL = "SELECT tripEndDate FROM trip WHERE tripNo = ?";
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			conn = DatabaseUtil.getConnection();
+			pstmt = conn.prepareStatement(SQL);
+			pstmt.setInt(1,TripNo);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				return rs.getInt(1);
+			}
+		}catch(Exception e) {e.printStackTrace();}
+		finally 
+		{
+			try{	if(conn!=null)	conn.close();}	catch(Exception e){e.printStackTrace();};
+			try{	if(pstmt!=null)	pstmt.close();}	catch(Exception e){e.printStackTrace();};
+			try{	if(rs!=null)	rs.close();}	catch(Exception e){e.printStackTrace();};
+		}
+		return 0;
+	}
+	public String GetBoardContent(String tripNo)
+	{
+		String SQL = "select boardContent from trip where tripNo = ?";
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			conn = DatabaseUtil.getConnection();
+			pstmt = conn.prepareStatement(SQL);
+			pstmt.setInt(1,Integer.parseInt(tripNo));
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				return rs.getString(1);
+			}
+		}catch(Exception e) {e.printStackTrace();}
+		finally 
+		{
+			try{	if(conn!=null)	conn.close();}	catch(Exception e){e.printStackTrace();};
+			try{	if(pstmt!=null)	pstmt.close();}	catch(Exception e){e.printStackTrace();};
+			try{	if(rs!=null)	rs.close();}	catch(Exception e){e.printStackTrace();};
+		}
+		return null;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+	
+	public int AddList(TripDTO tripDTO)
+	{
+		String SQL = "INSERT INTO trip VALUES(null,?,?,?,?,  	?,?,?,?);";
+
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			conn = DatabaseUtil.getConnection();
+			pstmt = conn.prepareStatement(SQL);						
+			//pstmt.setInt(1,tripDTO.getBoardID());
+			pstmt.setString(1,tripDTO.getBoardType().replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\r\n", "<br>"));
+			pstmt.setString(2,tripDTO.getBoardClassfy().replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\r\n", "<br>"));
+			pstmt.setString(3,tripDTO.getBoardTitle().replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\r\n", "<br>"));
+			pstmt.setInt(4,tripDTO.getBoardEnrollDate());
+			pstmt.setString(5,tripDTO.getBoardWriter().replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\r\n", "<br>"));	
+			pstmt.setInt(6,tripDTO.getTripStartDate());
+			pstmt.setInt(7,tripDTO.getTripEndDate());
+			pstmt.setString(8,tripDTO.getBoardContent().replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\r\n", "<br>"));
+			
+			return pstmt.executeUpdate();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		finally 
+		{
+			try{	if(conn!=null)	conn.close();}	catch(Exception e){e.printStackTrace();return -1;};
+			try{	if(pstmt!=null)	pstmt.close();}	catch(Exception e){e.printStackTrace();return -1;};
+			try{	if(rs!=null)	rs.close();}	catch(Exception e){e.printStackTrace();return -1;};
+			
+		}//DB
+		return -2;
+	}
+	
+	public int ReformList(TripDTO tripDTO)
+	{
+		String SQL = "UPDATE trip SET "
+				+ "boardType = ? , boardClassfy = ? , boardTitle = ? , boardEnrollDate = ? , boardWriter = ? ,"
+				+ "tripStartDate = ?, tripEndDate = ?, boardContent = ? "
+				+ "WHERE tripNo = ?";
+		
+		
+		
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			conn = DatabaseUtil.getConnection();
+			pstmt = conn.prepareStatement(SQL);			
+			pstmt.setString(1,tripDTO.getBoardType().replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\r\n", "<br>"));
+			pstmt.setString(2,tripDTO.getBoardClassfy().replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\r\n", "<br>"));
+			pstmt.setString(3,tripDTO.getBoardTitle().replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\r\n", "<br>"));
+			pstmt.setInt(4,tripDTO.getBoardEnrollDate());
+			pstmt.setString(5,tripDTO.getBoardWriter());
+			pstmt.setInt(6,tripDTO.getTripStartDate());
+			pstmt.setInt(7,tripDTO.getTripEndDate());
+			pstmt.setString(8,tripDTO.getBoardContent());
+			pstmt.setInt(9,tripDTO.getTripNo());
+		
+			return pstmt.executeUpdate();
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			try{	if(conn!=null)	conn.close();}	catch(Exception e){e.printStackTrace();};
+			try{	if(pstmt!=null)	pstmt.close();}	catch(Exception e){e.printStackTrace();};
+			try{	if(rs!=null)	rs.close();}	catch(Exception e){e.printStackTrace();};
+		}
+		return -1;
+	}
+	
+	
+	
+
+	public ArrayList<TripDTO> GetList(String boardType,String search) 
+	{	
+		ArrayList<TripDTO> boardList = null;
+		String SQL = "";
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+
+		
+		try {conn = DatabaseUtil.getConnection();
+			if(search.equals(null)||search.equals("")||search==""||search==null)
+			{
+				SQL = "SELECT * FROM trip WHERE boardType = ? ORDER BY tripNo";
+				pstmt = conn.prepareStatement(SQL);
+				pstmt.setString(1, boardType);
+			}
+			else
+			{
+				SQL = "SELECT * FRom trip WHERE (boardType = ? ) AND CONCAT(boardTitle,boardWriter,boardContent)Like ? ORDER BY tripNo";
+				pstmt = conn.prepareStatement(SQL);
+				pstmt.setString(1, "%"+boardType+"%");
+				pstmt.setString(2, "%"+search.replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\r\n", "<br>")+"%");
+			}
+
+			
+			rs = pstmt.executeQuery();
+			boardList = new ArrayList<TripDTO>();
+			while(rs.next()) {
+				TripDTO trip = new TripDTO(
+							rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getInt(5),	
+							rs.getString(6),rs.getInt(7),rs.getInt(8),rs.getString(9));
+					boardList.add(trip);
+					}
+		}
+		catch(Exception e) {e.printStackTrace();}
+		finally 
+		{
+					try{	if(conn!=null)	conn.close();}	catch(Exception e){e.printStackTrace();};
+					try{	if(pstmt!=null)	pstmt.close();}	catch(Exception e){e.printStackTrace();};
+					try{	if(rs!=null)	rs.close();}	catch(Exception e){e.printStackTrace();};
+		}
+		return boardList;
+	}
+	
+	
+	
+	
+	
+}
