@@ -180,9 +180,9 @@ public class BoardDAO
 		}
 		return 0;
 	}
-	public String GetBoardContent(String boardID)
+	public String GetBoardContent(String boardNo)
 	{
-		String SQL = "select boardContent from board where boardID = ?";
+		String SQL = "select boardContent from board where boardNo = ?";
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -190,7 +190,7 @@ public class BoardDAO
 		try {
 			conn = DatabaseUtil.getConnection();
 			pstmt = conn.prepareStatement(SQL);
-			pstmt.setInt(1,Integer.parseInt(boardID));
+			pstmt.setInt(1,Integer.parseInt(boardNo));
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
 				return rs.getString(1);
@@ -258,7 +258,7 @@ public class BoardDAO
 	
 	public int AddList(BoardDTO boardDTO)
 	{
-		String SQL = "INSERT INTO board VALUES(null,?,?,?,?,  	?,?,?,?);";
+		String SQL = "INSERT INTO board VALUES(null,?,?,?,?,  	?,?,?,?,?);";
 
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -275,6 +275,7 @@ public class BoardDAO
 			pstmt.setInt(6,boardDTO.getBoardViews());
 			pstmt.setInt(7,boardDTO.getBoardRecommandation());
 			pstmt.setString(8,boardDTO.getBoardContent().replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\r\n", "<br>"));
+			pstmt.setInt(9,boardDTO.getTripNo());
 			
 			return pstmt.executeUpdate();
 		}catch(Exception e) {
@@ -294,8 +295,8 @@ public class BoardDAO
 	{
 		String SQL = "UPDATE board SET "
 				+ "boardType = ? , boardClassfy = ? , boardTitle = ? , boardEnrollDate = ? , boardWriter = ? ,"
-				+ "boardViews = ?, boardRecommandation = ?, boardContent = ? "
-				+ "WHERE boardID = ?";
+				+ "boardViews = ?, boardRecommandation = ?, boardContent = ? , tripNo = ?"
+				+ "WHERE boarNo = ?";
 		
 		
 		
@@ -314,7 +315,8 @@ public class BoardDAO
 			pstmt.setInt(6,boardDTO.getBoardViews());
 			pstmt.setInt(7,boardDTO.getBoardRecommandation());
 			pstmt.setString(8,boardDTO.getBoardContent());
-			pstmt.setInt(9,boardDTO.getBoardNo());
+			pstmt.setInt(9,boardDTO.getTripNo());
+			pstmt.setInt(10,boardDTO.getBoardNo());
 		
 			return pstmt.executeUpdate();
 			
@@ -341,7 +343,7 @@ public class BoardDAO
 
 		
 		try {conn = DatabaseUtil.getConnection();
-			if(search.equals(null)||search.equals("")||search==""||search==null)
+			if(search==null||search.equals("")||search==""||search.equals(null))
 			{
 				SQL = "SELECT * FROM board WHERE boardType = ? ORDER BY boardNo";
 				pstmt = conn.prepareStatement(SQL);
@@ -361,7 +363,7 @@ public class BoardDAO
 			while(rs.next()) {
 				BoardDTO board = new BoardDTO(
 							rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getInt(5),	
-							rs.getString(6),rs.getInt(7),rs.getInt(8),rs.getString(9));
+							rs.getString(6),rs.getInt(7),rs.getInt(8),rs.getString(9),rs.getInt(10));
 					boardList.add(board);
 					}
 		}
