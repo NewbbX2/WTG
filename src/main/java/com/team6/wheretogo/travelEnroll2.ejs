@@ -33,12 +33,17 @@ int travelTatalSpanTime=0;
 	<body >
 			<form action="./travelEnrollAction.ejs" method="post"   ENCTYPE="multipart/form-data">
 				<label>게시판분류</label>
+				<select name = "travelTatalSpanTime" style="display: none;"><option value = <%=travelTatalSpanTime%> style="display:none"></option></select>
 				<select name = "travelClassfy" >
 					<option value="tripPlan">여행계획</option>	
 					<option value="tripLog">여행일지</option>
 				</select><br>
 				<label>제목</label>
 				<input type = "text" name = "travelTitle" class = "form-control" maxlength = "30" style = "width:300px"><br />
+				<label>여행시작일</label><%19940415같이 8자리%>
+				<input type = "number" name = "travelStartDate" class = "form-control" min = "19000101" nax="21000101" style = "width:300px"><br />
+				<label>여행국가</label>
+				<input type = "text" name = "travelCountry" class = "form-control" maxlength = "30" style = "width:300px"><br />
 				<label>작성자이름</label>
 				<select name = "travelWriter" ><option value = "<%=userID%>" selected><%=userID%></option></select><br>
 				<%<for(int i=0;i<travelTatalSpanTime;i++){%>
