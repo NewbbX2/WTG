@@ -1,4 +1,4 @@
-<%//ㅑindex.ejs에서 사용됨
+<%//index.ejs에서 사용됨
 //이젠 섹션에서 가져온 아이디.
 String userID = null;
 //request에서 가져온 여행일자
@@ -45,7 +45,7 @@ int travelTatalSpanTime=0;
 				
 					<label><%=i%>일차</label>
 <%지도들어갈 자린데 지도 핑찍으면 저장 가능한가요?%>
-					<textarea  name = "travelContent<%i%>" maxlength = "4096" style = "height:180px; width:700px;"></textarea><br/>
+					<textarea  name = "travelContent<%=i%>" maxlength = "4096" style = "height:180px; width:700px;"></textarea><br/>
 
 				<%}%>
 				
