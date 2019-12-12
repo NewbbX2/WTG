@@ -3,7 +3,16 @@
 <head>
 		<meta http-equiv = "Content-Type" content="text/html" charset="UTF-8">
 		<title> 회원가입페이지입니다.</title>
+		<script type="text/javascript">
 		
+			function PasswordCheckFunction()
+			{
+				var userPassword1=$('#userPassword1').val();
+				var userPassword2=$('#userPassword2').val();
+				if(userPassword1!=userPassword2)		{$('#PasswordCheckMessage').html('비밀번호가 일치하지 않습니다.');}
+				else									{$('#PasswordCheckMessage').html('');}
+			}
+		</script>
 </head>
 <body oncontextmenu='return false' ondragstart = "return flase" onselectstart = "return false">
 	
@@ -25,7 +34,7 @@
 					</tr>
 					<tr>
 						<td style = "width:110px;"><h5>비밀번호</h5></td>
-						<td colspan="2"><input type = "password" onkeyup="PasswordCheckFunction();"id = "userPassword" name = "userPassword" placeholder= "비밀번호를 입력하십시오."maxLength = "20"></td>
+						<td colspan="2"><input type = "password" onkeyup="PasswordCheckFunction();"id = "userPassword1" name = "userPassword1" placeholder= "비밀번호를 입력하십시오."maxLength = "20"></td>
 					</tr>
 					<tr>
 						<td style = "width:110px;"><h5>비밀번호 확인</h5></td>
