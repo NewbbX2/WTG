@@ -1,6 +1,10 @@
-<%//받아와야하는 데이터들.
-	//검색된 보드
-	var boardList[];
+<%
+	//검색조건으로 검색한 보드 데이터시트
+	var[] boardList;
+	//정확히 모르겠어서 
+	//	.size라고 해뒀는데 
+	//해당 검색으로 데이터수를 수정해줘야할듯..
+	//
 %>
 
 
@@ -8,14 +12,10 @@
 <%
 String userID = null;
 String boardType="freeForum";
-
 //현재 페이지 번호
 int pageNo=1;
 //페이지당 보드 출력수.
 int boardIndexNoPerPage=15;
-
-
-
 
 if(session.getAttribute("userID")!=null)
 {
@@ -75,11 +75,11 @@ if(session.getAttribute("userID")!=null)
 						//출력
 						for(int indexNo=NoStart ;(indexNo>=1)&&(indexNo>NoNextStart);indexNo--){
 							<tr>
-								<td><a href = "freeForum2.ejs?boardNo=<%=board.getBoardNo()%>" style="text-decoration:none;color:black"><%=indexNo%></a></td>	
-								<td><a href = "freeForum2.ejs?boardNo=<%=board.getBoardNo()%>" style="text-decoration:none;color:black"><%=board[indexNo-1].boardTitle%></a></td>	
-								<td><a href = "freeForum2.ejs?boardNo=<%=board.getBoardNo()%>" style="text-decoration:none;color:black"><%=board[indexNo-1].boardEnrollDate()%></a></td>	
-								<td><a href = "freeForum2.ejs?boardNo=<%=board.getBoardNo()%>" style="text-decoration:none;color:black"><%=board[indexNo-1].boardWriter()%></a></td>
-								<td><a href = "freeForum2.ejs?boardNo=<%=board.getBoardNo()%>" style="text-decoration:none;color:black"><%=board[indexNo-1].boardViews()%></a></td>	
+								<td><a href = "freeForum2.ejs?boardNo=<%=boardList[indexNo-1].boardNo%>" style="text-decoration:none;color:black"><%=indexNo%></a></td>	
+								<td><a href = "freeForum2.ejs?boardNo=<%=boardList[indexNo-1].boardNo%>" style="text-decoration:none;color:black"><%=boardList[indexNo-1].boardTitle%></a></td>	
+								<td><a href = "freeForum2.ejs?boardNo=<%=boardList[indexNo-1].boardNo%>" style="text-decoration:none;color:black"><%=boardList[indexNo-1].boardEnrollDate%></a></td>	
+								<td><a href = "freeForum2.ejs?boardNo=<%=boardList[indexNo-1].boardNo%>" style="text-decoration:none;color:black"><%=boardList[indexNo-1].boardWriter%></a></td>
+								<td><a href = "freeForum2.ejs?boardNo=<%=boardList[indexNo-1].boardNo%>" style="text-decoration:none;color:black"><%=boardList[indexNo-1].boardViews%></a></td>	
 							</tr>
 					
 						<%}
